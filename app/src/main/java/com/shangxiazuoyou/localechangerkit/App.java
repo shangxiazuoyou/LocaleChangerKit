@@ -1,6 +1,7 @@
 package com.shangxiazuoyou.localechangerkit;
 
 import android.app.Application;
+import android.content.res.Configuration;
 
 import java.util.Arrays;
 import java.util.List;
@@ -22,5 +23,11 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         LocaleChangerKit.initialize(getApplicationContext(), SUPPORTED_LOCALES);
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        LocaleChangerKit.onConfigurationChanged();
     }
 }
